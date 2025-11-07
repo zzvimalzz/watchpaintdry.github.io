@@ -26,7 +26,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 350;
     color: rgba(255, 0, 0, 0.6);
     text-align: center;
     pointer-events: none;
