@@ -106,4 +106,33 @@ paintWall.addEventListener('contextmenu', (e) => {
     showMessage();
 });
 
+const badgeToggle = document.getElementById('badgeToggle');
+const statsPanel = document.getElementById('statsPanel');
+const closePanel = document.getElementById('closePanel');
+const sessionTimeDisplay = document.getElementById('sessionTime');
+
+badgeToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    statsPanel.classList.toggle('show');
+    if (statsPanel.classList.contains('show')) {
+        sessionTimeDisplay.textContent = document.getElementById('timerDisplay').textContent;
+    }
+});
+
+closePanel.addEventListener('click', () => {
+    statsPanel.classList.remove('show');
+});
+
+document.addEventListener('click', (e) => {
+    if (statsPanel.classList.contains('show') && 
+        !statsPanel.contains(e.target) && 
+        e.target !== badgeToggle) {
+        statsPanel.classList.remove('show');
+    }
+});
+
+let totalVisits = parseInt(localStorage.getItem('paintDryVisits') || '0') + 1;
+localStorage.setItem('paintDryVisits', totalVisits.toString());
+document.getElementById('totalVisits').textContent = totalVisits;
+
 updateTimer();

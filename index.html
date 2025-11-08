@@ -59,6 +59,33 @@
         </svg>
     </button>
     
+    <button id="badgeToggle" class="badge-button" aria-label="View stats">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+        </svg>
+    </button>
+    
+    <div id="statsPanel" class="stats-panel">
+        <div class="panel-header">
+            <h3>Your Stats</h3>
+            <button id="closePanel" class="close-btn" aria-label="Close panel">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="stat-item">
+                <div class="stat-label">Session Time</div>
+                <div class="stat-value" id="sessionTime">00:00:00</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Total Visits</div>
+                <div class="stat-value" id="totalVisits">1</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Patience Level</div>
+                <div class="stat-value">🎨 Beginner</div>
+            </div>
+        </div>
+    </div>
+    
     <div class="paint-wall" id="paintWall" role="main" aria-label="Paint drying wall">
         <div class="message" id="message" role="alert" aria-live="polite">The paint is still wet!</div>
     </div>
