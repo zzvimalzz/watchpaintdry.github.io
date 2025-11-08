@@ -70,11 +70,65 @@ body {
     letter-spacing: 2px;
 }
 
-/* Responsive design */
+.audio-toggle {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.audio-toggle:active {
+    transform: scale(0.95);
+}
+
+.audio-icon {
+    width: 24px;
+    height: 24px;
+    color: #2c3e50;
+}
+
+.audio-toggle.muted .sound-on {
+    display: none;
+}
+
+.audio-toggle.muted .sound-off {
+    display: block !important;
+}
+
 @media (max-width: 768px) {
     .message {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        font-weight: 400;
         padding: 0 20px;
+    }
+    
+    .audio-toggle {
+        top: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .audio-icon {
+        width: 20px;
+        height: 20px;
     }
     
     .timer {
