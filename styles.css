@@ -4,19 +4,31 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 .paint-wall {
     width: 100%;
     height: 100%;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ffd6e8 0%, #ffe5f0 50%, #ffdde7 100%);
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     transition: background 0.3s ease;
 }
 
@@ -51,6 +63,7 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     text-align: center;
+    z-index: 1000;
 }
 
 .timer-label {
@@ -86,7 +99,9 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 10;
+    z-index: 1000;
+    padding: 0;
+    outline: none;
 }
 
 .audio-toggle:hover {
@@ -117,6 +132,7 @@ body {
         font-size: 2rem;
         font-weight: 400;
         padding: 0 20px;
+        top: 40%;
     }
     
     .audio-toggle {
