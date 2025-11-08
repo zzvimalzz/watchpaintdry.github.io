@@ -3,15 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Watch Paint Dry</title>
+    <meta name="title" content="Watch Paint Dry">
+    <meta name="description" content="Experience the most relaxing activity on the internet. Watch paint dry with a timer tracking how long you've been meditating. Perfect for stress relief, mindfulness, and pure zen relaxation.">
+    <meta name="keywords" content="watch paint dry, relaxation timer, meditation, stress relief, mindfulness, zen, calming website, boredom cure, procrastination, funny website, time waster, chill website">
+    <meta name="author" content="Watch Paint Dry">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.watchpaintdry.net/">
+    <meta property="og:title" content="Watch Paint Dry - Ultimate Relaxation & Meditation Timer">
+    <meta property="og:description" content="Experience the most relaxing activity on the internet. Watch paint dry with a timer tracking how long you've been meditating.">
+    <meta property="og:image" content="https://www.watchpaintdry.net/preview.png">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.watchpaintdry.net/">
+    <meta property="twitter:title" content="Watch Paint Dry - Ultimate Relaxation & Meditation Timer">
+    <meta property="twitter:description" content="Experience the most relaxing activity on the internet. Watch paint dry with a timer tracking how long you've been meditating.">
+    <meta property="twitter:image" content="https://www.watchpaintdry.net/preview.png">
+    
+    <link rel="canonical" href="https://www.watchpaintdry.net/">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    
     <link rel="stylesheet" href="styles.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Watch Paint Dry",
+      "description": "A relaxing meditation timer where you watch paint dry. Perfect for stress relief and mindfulness.",
+      "url": "https://www.watchpaintdry.net/",
+      "applicationCategory": "Entertainment, Lifestyle",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 </head>
 <body>
-    <div class="paint-wall" id="paintWall">
-        <div class="message" id="message">The paint is still wet!</div>
+    <div class="paint-wall" id="paintWall" role="main" aria-label="Paint drying wall">
+        <div class="message" id="message" role="alert" aria-live="polite">The paint is still wet!</div>
     </div>
     
-    <div class="timer" id="timer">
+    <div class="timer" id="timer" role="timer" aria-label="Time spent watching paint dry">
         <div class="timer-label">You've Been Staring For</div>
         <div class="timer-display" id="timerDisplay">00:00:00</div>
     </div>
