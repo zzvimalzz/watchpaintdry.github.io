@@ -8,6 +8,18 @@
     -ms-user-select: none;
 }
 
+:root {
+    color-scheme: light only;
+}
+
+html {
+    color-scheme: light only;
+}
+
+body {
+    color-scheme: light only;
+}
+
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
