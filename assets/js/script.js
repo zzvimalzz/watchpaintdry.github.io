@@ -329,6 +329,16 @@ document.addEventListener('click', (e) => {
     }
 });
 
+document.addEventListener('touchstart', (e) => {
+    if (statsPanel.classList.contains('show') && 
+        !statsPanel.contains(e.target) && 
+        e.target !== badgeToggle && 
+        !badgeToggle.contains(e.target)) {
+        statsPanel.classList.remove('show');
+        closeAllDrawers();
+    }
+});
+
 let totalVisits = parseInt(localStorage.getItem('paintDryVisits') || '0') + 1;
 localStorage.setItem('paintDryVisits', totalVisits.toString());
 document.getElementById('totalVisits').textContent = totalVisits;
