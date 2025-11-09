@@ -1,7 +1,11 @@
 let startTime = Date.now();
 let timerInterval;
+let pausedTime = 0;
+let isPaused = false;
 
 function updateTimer() {
+    if (isPaused) return;
+    
     const elapsed = Date.now() - startTime;
     const hours = Math.floor(elapsed / 3600000);
     const minutes = Math.floor((elapsed % 3600000) / 60000);
@@ -13,6 +17,18 @@ function updateTimer() {
 }
 
 timerInterval = setInterval(updateTimer, 100);
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        isPaused = true;
+        pausedTime = Date.now() - startTime;
+    } else {
+        if (isPaused) {
+            startTime = Date.now() - pausedTime;
+            isPaused = false;
+        }
+    }
+});
 
 const audio = document.getElementById('ambienceAudio');
 const audioToggle = document.getElementById('audioToggle');
