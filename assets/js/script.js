@@ -290,19 +290,29 @@ paintWall.addEventListener('contextmenu', (e) => {
 const badgeToggle = document.getElementById('badgeToggle');
 const statsPanel = document.getElementById('statsPanel');
 const closePanel = document.getElementById('closePanel');
-const sessionTimeDisplay = document.getElementById('sessionTime');
+const longestSessionDisplay = document.getElementById('longestSession');
+
+function formatTime(milliseconds) {
+    const hours = Math.floor(milliseconds / 3600000);
+    const minutes = Math.floor((milliseconds % 3600000) / 60000);
+    const seconds = Math.floor((milliseconds % 60000) / 1000);
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
 
 badgeToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     statsPanel.classList.toggle('show');
     if (statsPanel.classList.contains('show')) {
-        sessionTimeDisplay.textContent = document.getElementById('timerDisplay').textContent;
+        const currentSessionTime = Date.now() - startTime;
+        
+        const longestSession = parseInt(localStorage.getItem('longestSession') || '0');
+        const displayLongest = Math.max(longestSession, currentSessionTime);
+        longestSessionDisplay.textContent = formatTime(displayLongest);
         
         const clicks = parseInt(localStorage.getItem('paintClicks') || '0');
         document.getElementById('totalClicks').textContent = clicks;
         
-        const sessionTime = Date.now() - startTime;
-        const sessionMinutes = Math.floor(sessionTime / 60000);
+        const sessionMinutes = Math.floor(currentSessionTime / 60000);
         
         let level = '🎨 Beginner';
         for (const pLevel of patienceLevels) {
@@ -368,6 +378,11 @@ function saveSessionTime() {
     const elapsed = Date.now() - startTime;
     const storedTime = parseInt(localStorage.getItem('totalWatchTime') || '0');
     localStorage.setItem('totalWatchTime', (storedTime + elapsed).toString());
+    
+    const longestSession = parseInt(localStorage.getItem('longestSession') || '0');
+    if (elapsed > longestSession) {
+        localStorage.setItem('longestSession', elapsed.toString());
+    }
 }
 
 setInterval(saveSessionTime, 10000);
