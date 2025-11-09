@@ -252,10 +252,12 @@ function processNotificationQueue() {
     }, 3000);
 }
 
+let isMessageShowing = false;
+
 function showMessage() {
-    if (messageTimeout) {
-        clearTimeout(messageTimeout);
-    }
+    if (isMessageShowing) return;
+    
+    isMessageShowing = true;
     
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     message.textContent = randomMessage;
@@ -264,6 +266,9 @@ function showMessage() {
     
     messageTimeout = setTimeout(() => {
         message.classList.remove('show');
+        setTimeout(() => {
+            isMessageShowing = false;
+        }, 300);
     }, 2000);
     
     let totalClicks = parseInt(localStorage.getItem('paintClicks') || '0') + 1;
